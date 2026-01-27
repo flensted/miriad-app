@@ -1,0 +1,29 @@
+{
+  "name": "cast-backend",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm --filter @cast/server dev",
+    "dev:no-watch": "pnpm --filter @cast/server dev:no-watch",
+    "migrate": "pnpm --filter @cast/storage migrate",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint packages/*/src/**/*.ts",
+    "typecheck": "pnpm -r typecheck",
+    "deploy": "cd deploy && ./deploy.sh",
+    "publish:backend": "pnpm --filter @miriad-systems/backend build && pnpm --filter @miriad-systems/backend publish --access public",
+    "publish:assets-mcp": "pnpm --filter @miriad-systems/assets-mcp build && pnpm --filter @miriad-systems/assets-mcp publish --access public",
+    "build:miriad-cloud": "docker build -t miriad-cloud -f ../agents/miriad-cloud/Dockerfile .."
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0",
+    "vitest": "^2.0.0",
+    "eslint": "^9.0.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

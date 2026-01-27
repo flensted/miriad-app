@@ -1,0 +1,51 @@
+{
+  "name": "@cast/server",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./websocket": {
+      "import": "./dist/websocket/index.js",
+      "types": "./dist/websocket/index.d.ts"
+    },
+    "./runtimes/runtime-protocol-handlers": {
+      "import": "./dist/runtimes/runtime-protocol-handlers.js",
+      "types": "./dist/runtimes/runtime-protocol-handlers.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/dev.ts",
+    "dev:no-watch": "tsx src/dev.ts",
+    "typecheck": "tsc --noEmit",
+    "test:local-runtime": "tsx test/local-runtime-e2e.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-apigatewaymanagementapi": "^3.0.0",
+    "@aws-sdk/client-dynamodb": "^3.0.0",
+    "@aws-sdk/client-s3": "^3.0.0",
+    "@cast/core": "workspace:*",
+    "@cast/runtime": "workspace:*",
+    "@cast/storage": "workspace:*",
+    "@hono/node-server": "^1.8.0",
+    "@workos-inc/node": "^7.79.3",
+    "dotenv": "^17.2.3",
+    "hono": "^4.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "postgres": "^3.4.7",
+    "ulid": "^3.0.2",
+    "ws": "^8.18.3",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/ws": "^8.18.1",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.0"
+  }
+}

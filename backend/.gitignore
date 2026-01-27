@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+*.tsbuildinfo
+
+# SAM build artifacts
+.aws-sam/
+
+# SAM config with secrets (use samconfig.toml.template)
+deploy/samconfig.toml
+
+# Environment files (keep .env.example)
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+
+# Temporary files
+tmp/
+temp/
+
+# Vitest
+.vite/
+
+# Package locks (using pnpm)
+package-lock.json
+
+# Legacy/reference code
+legacy-cikada/

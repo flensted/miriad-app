@@ -1,0 +1,21 @@
+node_modules/
+frontend/dist/
+.DS_Store
+.letta/
+
+# Environment files with secrets
+.env
+.env.*
+!.env.example
+
+# Deployment configs with secrets
+samconfig.toml
+!samconfig.toml.template
+
+# Keys and tokens
+*.pem
+developer-token.txt
+
+# Deployment configs
+fly.toml
+vercel.json
