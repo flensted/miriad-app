@@ -1,6 +1,6 @@
 # Miriad
 
-**Try it now:** This application is available as a free hosted app at [miriad.tech](https://miriad.tech). Docs and background on [miriad.system](https://miriad.system).
+**Try it now:** This application is available as a free hosted app at [miriad.tech](https://miriad.tech). Docs and background on [miriad.systems](https://miriad.systems).
 
 > **Note:** Internal code-name is "Cast" - you'll see this throughout the codebase.
 
