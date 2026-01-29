@@ -43,7 +43,6 @@ export const agentTemplate = defineType({
           {title: 'Claude Code', value: 'claude-code'},
         ],
       },
-      initialValue: 'claude-code',
       validation: (rule) => rule.required(),
     }),
     defineField({
