@@ -35,8 +35,10 @@ export const agentTemplate = defineType({
       title: 'Engine',
       type: 'string',
       description: 'AI engine to use',
+      initialValue: 'nuum',
       options: {
         list: [
+          {title: 'Nuum', value: 'nuum'},
           {title: 'Claude', value: 'claude'},
           {title: 'Claude Code', value: 'claude-code'},
         ],
@@ -60,7 +62,8 @@ export const agentTemplate = defineType({
       name: 'nameTheme',
       title: 'Name Theme',
       type: 'string',
-      description: 'Theme for generating agent callsigns (e.g., "nordic mythology", "space exploration")',
+      description:
+        'Theme for generating agent callsigns (e.g., "nordic mythology", "space exploration")',
     }),
     defineField({
       name: 'agentName',
@@ -73,7 +76,8 @@ export const agentTemplate = defineType({
       title: 'System Prompt',
       type: 'text',
       rows: 20,
-      description: 'The system prompt/instructions for this agent in Markdown (becomes artifact content)',
+      description:
+        'The system prompt/instructions for this agent in Markdown (becomes artifact content)',
     }),
     defineField({
       name: 'mcpServers',
