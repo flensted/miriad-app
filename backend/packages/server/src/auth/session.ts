@@ -144,6 +144,10 @@ function getCookieDomain(): string | undefined {
       if (hostname === 'localhost' || hostname === '127.0.0.1') {
         return undefined;
       }
+      // For fly.dev (public suffix), don't set domain - let browser use exact hostname
+      if (hostname.endsWith('.fly.dev')) {
+        return undefined;
+      }
       // Extract root domain (e.g., miriad.tech from app.miriad.tech)
       const parts = hostname.split('.');
       if (parts.length >= 2) {
