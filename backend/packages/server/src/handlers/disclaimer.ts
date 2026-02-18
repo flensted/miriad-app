@@ -53,21 +53,25 @@ const DISCLAIMER_QUERY = `*[_id == "legalDisclaimer"][0]{
 }`;
 
 async function fetchDisclaimer(): Promise<SanityDisclaimer | null> {
-  const url = new URL(
-    `https://${SANITY_PROJECT_ID}.api.sanity.io/v${SANITY_API_VERSION}/data/query/${SANITY_DATASET}`
-  );
-  url.searchParams.set('query', DISCLAIMER_QUERY);
+  // Stub: Return default disclaimer to bypass Sanity dependency
+  // TODO: Re-enable Sanity integration when configured
+  return {
+    _id: 'legalDisclaimer',
+    _type: 'disclaimer',
+    name: 'Legal Disclaimer',
+    slug: { current: 'legal-disclaimer' },
+    title: 'Terms of Use',
+    content: `By using this service, you acknowledge that:
 
-  const response = await fetch(url.toString());
+1. This is experimental software provided "as is" without warranty.
+2. AI-generated content may contain errors or inaccuracies.
+3. You are responsible for reviewing and validating any code or content produced.
+4. Do not share sensitive credentials or proprietary information.
 
-  if (!response.ok) {
-    throw new Error(
-      `Sanity query failed: ${response.status} ${response.statusText}`
-    );
-  }
-
-  const data = (await response.json()) as { result: SanityDisclaimer | null };
-  return data.result;
+Use responsibly and at your own risk.`,
+    version: '1.0.0',
+    active: true,
+  };
 }
 
 // =============================================================================
