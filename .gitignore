@@ -17,5 +17,4 @@ samconfig.toml
 developer-token.txt
 
 # Deployment configs
-fly.toml
 vercel.json
