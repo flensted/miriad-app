@@ -1,12 +1,43 @@
 /**
- * Space Seeding from Sanity
+ * Space Seeding
  *
- * Seeds a new space with content from Sanity CMS.
+ * Seeds a new space with initial content.
  */
 
 import type { Storage } from '@cast/storage';
 import { fetchOnboardingContent } from './sanity-client';
 import { transformOnboardingContent } from './transform';
+
+/**
+ * Seed a new space with minimal content (no Sanity dependency).
+ *
+ * Creates:
+ * 1. #root channel for system configuration
+ * 2. #first-channel as the default working channel
+ *
+ * @param storage - Storage instance
+ * @param spaceId - ID of the space to seed
+ */
+export async function seedSpace(
+  storage: Storage,
+  spaceId: string
+): Promise<void> {
+  // Create #root channel
+  await storage.createChannel({
+    spaceId,
+    name: 'root',
+    tagline: 'System configuration',
+    mission: 'System-level artifacts and configuration for this space.',
+  });
+
+  // Create #first-channel as the default working channel
+  await storage.createChannel({
+    spaceId,
+    name: 'first-channel',
+    tagline: 'Your first channel',
+    mission: 'A space to get started with AI agents.',
+  });
+}
 
 /**
  * Seed a new space with content from Sanity.

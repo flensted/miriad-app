@@ -9,5 +9,5 @@ export { fetchOnboardingContent } from './sanity-client';
 export type { OnboardingContent } from './sanity-client';
 export { transformOnboardingContent } from './transform';
 export type { TransformedContent } from './transform';
-export { seedSpaceFromSanity } from './seed';
+export { seedSpace, seedSpaceFromSanity } from './seed';
 export { resetRootChannel } from './reset';

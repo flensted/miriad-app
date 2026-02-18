@@ -17,7 +17,7 @@ import {
   clearSessionCookie,
   parseSession,
 } from './session.js';
-import { seedSpaceFromSanity } from '../onboarding/index.js';
+import { seedSpace } from '../onboarding/index.js';
 
 // =============================================================================
 // Types
@@ -407,8 +407,8 @@ export function createWorkOSAuthRoutes(options: WorkOSAuthOptions): Hono {
         name: finalSpaceName,
       });
 
-      // Seed space with content from Sanity
-      await seedSpaceFromSanity(storage, space.id);
+      // Seed space with minimal content (no Sanity dependency)
+      await seedSpace(storage, space.id);
 
       // Create session with WorkOS session ID for logout support
       const token = await createSession(user.id, space.id, 'workos', tokenPayload.workosSessionId);
